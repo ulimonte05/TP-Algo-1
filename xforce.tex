@@ -12,10 +12,10 @@
 \materia{Materia de la carrera}
 \grupo{Grupo 42}
 
-\integrante{Apellido, Nombre1}{001/01}{email1@dominio.com}
-\integrante{Apellido, Nombre2}{002/01}{email2@dominio.com}
-\integrante{Apellido, Nombre3}{003/01}{email3@dominio.com}
-\integrante{Apellido, Nombre4}{004/01}{email4@dominio.com}
+\integrante{Krivonosoff, Thiago}{310/24}{thiagokribas@gmail.com}
+\integrante{Pelli, Agustin}{002/01}{email2@dominio.com}
+\integrante{Miguel, Facundo}{003/01}{email3@dominio.com}
+\integrante{Montenegro, Ulises}{477/24}{ulinicolasmonte@gmail.com}
 % Pongan cuantos integrantes quieran
 
 % Declaramos donde van a estar las figuras
@@ -144,14 +144,18 @@ Si se pone un label al \verb|lstlisting|, se puede referenciar: Código \ref{cod
 \pred{predSuelto}{parametros}{\existe[unalinea]{variable}{tipo}{algo \yLuego expresion}}
 
 
-\title{A partir de aca empieza el TP.}
+A partir de aca empieza el TP.
+
+%salto de lineas
+
+\section{Problema 1}
 
 \begin{proc}{grandesCiudades}{\In ciudades : \TLista{Ciudades}}{\TLista{Ciudades}}
 	\requiere{noRepetidos(ciudades)}
 	\asegura{ \longitud{res} = \longitud{ciudades} }
 \end{proc}
 
-\aux{noRepetidos}{\In ciudades: \TLista{Ciudades}}{\bool}{\paraTodo[j,i: \natural]{}{}{}}
+\aux{noRepetidos}{\In ciudades: \TLista{Ciudades}}{\bool}
 
 
 \end{document}
