@@ -152,10 +152,12 @@ A partir de aca empieza el TP.
 
 \begin{proc}{grandesCiudades}{\In ciudades : \TLista{Ciudades}}{\TLista{Ciudades}}
 	\requiere{noRepetidos(ciudades)}
-	\asegura{ \longitud{res} = \longitud{ciudades} }
+	\asegura{ \longitud{res} <= \longitud{ciudades} }
+	\asegura{ \paraTodo[unalinea]{elem}{Ciudades}{(elem.habitantes > 50000 \land elem \in ciudades) \implica elem \in res}}
 \end{proc}
 
-\aux{noRepetidos}{\In ciudades: \TLista{Ciudades}}{\bool}
+\pred{noRepetidos}{\In ciudades: \TLista{Ciudades}}
+	{\paraTodo[unalinea]{i}{\ent}{0 <= i < |ciudades|}\paraTodo[unalinea]{j}{\ent}{0 <= j < |ciudades|}\implicaLuego (i \neq j \implica ciudades[i].nombre \neq ciudades[j].nombre)}
 
 
 \end{document}
