@@ -198,7 +198,7 @@ A partir de aca empieza el TP.
 \end{proc}
 
 \pred{todosConexionAnterior}{\In sec: \TLista{\ent}, \In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{j}{\ent}{1 <= i < |sec| \implicaLuego mat[sec[i]][sec[i-1]] \neq 0
+	\paraTodo[unalinea]{j}{\ent}{1 \leq i < |sec| \implicaLuego mat[sec[i]][sec[i-1]] \neq 0
 }}
 \pred{esCuadrada}{\In mat: \TLista{\TLista{\ent}}}{
 	\paraTodo[unalinea]{i}{\ent}{0 <= i < |mat|} \implicaLuego |mat| = |mat[i]|
