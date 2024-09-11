@@ -212,7 +212,8 @@ A partir de aca empieza el TP.
 \section{Problema 4}
 
 \begin{proc}{cantidadCaminosNSaltos}{\Inout conexion: \TLista{\TLista{\ent}}, \In n: \ent}{}
-	\requiere{esCuadrada(conexion)}
+	\requiere{1 \leq n}
+        \requiere{esCuadrada(conexion)}
 	\requiere{filaIgualColumna(conexion)}
 	\requiere{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |conexion|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |conexion|} \implicaLuego conexion[i][j] \in [0,1]}
 	\requiere{conexion = C_0}
