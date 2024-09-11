@@ -152,15 +152,15 @@ A partir de aca empieza el TP.
 
 \begin{proc}{grandesCiudades}{\In ciudades : \TLista{Ciudad}}{\TLista{Ciudad}}
 	\requiere{noRepetidos(ciudades) \land noHabitantesNegativos(ciudades)}
-	\asegura{ \longitud{res} <= \longitud{ciudades} }
+	\asegura{ \longitud{res} \leq \longitud{ciudades} }
 	\asegura{ \paraTodo[unalinea]{elem}{Ciudad}{(elem.habitantes > 50000 \land elem \in ciudades) \implica elem \in res}}
 \end{proc}
 
 \pred{noRepetidos}{\In ciudades: \TLista{Ciudad}}
-	{\paraTodo[unalinea]{i}{\ent}{0 <= i < |ciudades|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 <= j < |ciudades|}\implicaLuego (i \neq j \implica ciudades[i].nombre \neq ciudades[j].nombre)}
+	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |ciudades|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |ciudades|}\implicaLuego (i \neq j \implica ciudades[i].nombre \neq ciudades[j].nombre)}
 
 \pred{noHabitantesNegativos}{\In ciudades: \TLista{Ciudad}}
-	{\paraTodo[unalinea]{i}{\ent}{0 <= i < |ciudades|} \implicaLuego ciudades[i].habitantes >= 0}
+	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |ciudades|} \implicaLuego ciudades[i].habitantes >= 0}
 
 \section{Problema 2}
 
@@ -171,7 +171,7 @@ A partir de aca empieza el TP.
 	\requiere{|menoresDeCiudades| = |mayoresDeCiudades|}
 	\asegura{|res| = |mayoresDeCiudades|}
 	\asegura{\paraTodo[unalinea]{elem}{Ciudad}{(elem \in res) \implica  \\ 
-	{\paraTodo[unalinea]{i}{\ent}{0 <= i < |res|}\implicaLuego \existe[unalinea]{j}{\ent}{0 <= j < |res|}}}
+	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |res|}\implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |res|}}}
 		\yLuego \\
 		{mayoresDeCiudades[i].nombre = menoresDeCiudades[j].nombre} \implica \\
 		res[i].nombre = mayoresDeCiudades[i].nombre \land \\
@@ -180,18 +180,18 @@ A partir de aca empieza el TP.
 \newpage
 
 \pred{mismosElementos}{\In s1: \TLista{Ciudad}, \In s2: \TLista{Ciudad}}{
-	{\paraTodo[unalinea]{i}{\ent}{0 <= i < |s1|} \implicaLuego \existe[unalinea]{j}{\ent}{0 <= j < |s1|} \yLuego s1[i].nombre = s2[j].nombre}
+	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |s1|} \implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |s1|} \yLuego s1[i].nombre = s2[j].nombre}
 }
 
 \section{Problema 3}
 
 \begin{proc}{hayCamino}{\In distancia: \TLista{\TLista{\ent}}, \In desde: \ent, \In hasta: \ent}{\bool}
 	\requiere{esCuadrada(distancia)}
-	\requiere{0 <= desde < |distancia|}
-	\requiere{0 <= hasta < |distancia|}
+	\requiere{0 \leq desde < |distancia|}
+	\requiere{0 \leq hasta < |distancia|}
 	\requiere{filaIgualColumna(distancia)}
 	\requiere{matrizTodosPositivos(distancia)}
-	\asegura{\existe[unalinea]{sec}{\TLista{\ent}}{\paraTodo[unalinea]{i}{\ent}{0 <= i < |sec|}}\implicaLuego 0 <= sec[i] < |distancia| \land \\ 
+	\asegura{\existe[unalinea]{sec}{\TLista{\ent}}{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|}}\implicaLuego 0 \leq sec[i] < |distancia| \land \\ 
 	sec[0] = desde \land sec[|sec|-1] = hasta \land \\
 	todosConexionAnterior(sec, distancia)}
 
@@ -201,13 +201,36 @@ A partir de aca empieza el TP.
 	\paraTodo[unalinea]{j}{\ent}{1 \leq i < |sec| \implicaLuego mat[sec[i]][sec[i-1]] \neq 0
 }}
 \pred{esCuadrada}{\In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{i}{\ent}{0 <= i < |mat|} \implicaLuego |mat| = |mat[i]|
-}
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \implicaLuego |mat| = |mat[i]|
+}\\
 \pred{filaIgualColumna}{\In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{i}{\ent}{0 <= i < |mat|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 <= j < |mat|} \implicaLuego mat[i][j] = mat[j][i]
-}
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego mat[i][j] = mat[j][i]
+}\\
 \pred{matrizTodosPositivos}{\In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{i}{\ent}{0 <= i < |mat|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 <= j < |mat|} \implicaLuego mat[i][j] >= 0
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego mat[i][j] >= 0
+}\\
+\section{Problema 4}
+
+\begin{proc}{cantidadCaminosNSaltos}{\Inout conexion: \TLista{\TLista{\ent}}, \In n: \ent}{}
+	\requiere{esCuadrada(conexion)}
+	\requiere{filaIgualColumna(conexion)}
+	\requiere{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |conexion|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |conexion|} \implicaLuego conexion[i][j] \in [0,1]}
+	\requiere{conexion = C_0}
+	\asegura{\existe[unalinea]{sec}{\TLista{\TLista{\TLista{\ent}}}}{|sec| = n} \land sec[0] = C_0 \land\\
+	\paraTodo[unalinea]{i}{\ent}{1 \leq i < |sec|} \implicaLuego sec[i] = multiplicarMatrices(C_0, sec[i-1]) \implica conexion = sec[|sec| - 1] }
+\end{proc}
+
+\aux{inversa}{\In mat: \TLista{\TLista{\ent}}}{\TLista{\TLista{\ent}}}{\\
+\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuegos res[j][i] = mat[i][j]
+}
+
+\aux{multiplicarMatrices}{\In mat1: {\TLista{\TLista{\ent}}}, \In mat2: {\TLista{\TLista{\ent}}}}{\TLista{\TLista{\ent}}}{\\
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat1|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat1[i]|} \implicaLuego \\
+	res[i][j] = productoEscalar(mat1[i], inversa(mat2)[j])
+}
+
+\aux{productoEscalar}{\in fila: \TLista{\ent}, \in col: \TLista{\ent}}{\ent}{\\
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |fila|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |col|} \implicaLuego res = \sum_{i = 0}^{|fila| - 1} fila[i] * fila[j]
 }
 
 \section{Punto 2}
