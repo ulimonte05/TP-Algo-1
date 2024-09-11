@@ -234,7 +234,7 @@ A partir de aca empieza el TP.
 	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |fila|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |col|} \implicaLuego res = \sum_{i = 0}^{|fila| - 1} fila[i] * fila[j]
 }
 
-\section{Punto 2}
+\section{Punto 2.1}
 \subtitle{Demostramos que la implementación es correcta con correcta con respecto a la especificación dada mediante teorema de invariante y teorema de terminación.}
 
 Por teorema del invariante primero debemos demostrar los siguientes puntos:
@@ -443,6 +443,38 @@ i = |\text{ciudades}| \implica i \geq |\text{ciudades}|
 
 \[
 True
+\]
+
+\section{Ejercicio 2.2}
+
+Teniendo en cuenta la correctitud del programa demostrada en el 2.1, sabemos que el valor devuelto por el programa, siempre que se cumpla la precondición, tendrá la pinta de:
+
+\[
+\text{res} = \text{sumatoria}  
+\]
+
+En el procedimiento, se especifica que el parámetro de entrada es de tipo IN, por lo tanto en la precondición y la postcondición, el parámetro \textit{ciudades} mantendrá las mismas características, entre ellas que sus elementos son todos mayores o iguales a 0. Por lo tanto, al tomar un elemento de \textit{ciudades}, obligatoriamente será menor o igual a la sumatoria del total de elementos de \textit{ciudades}, es decir:
+
+\[
+\textit{ciudades}[i].habitantes \leq \text{sumatoria} \text{con algún i} 0 \leq i < |\textit{ciudades}|
+\]
+
+Ahora bien, según la postcondición sabemos que \text{res} = la sumatoria de todos sus elementos, entre los cuales sabemos que al menos alguno de ellos es mayor a 50.000, por lo tanto:
+
+\[
+50.000 < \textit{ciudades}[k].habitantes \quad \text{con algún k} \quad 0 \leq k < |\textit{ciudades}|
+\]
+
+Podemos afirmar entonces que:
+
+\[
+50.000 < \textit{ciudades}[k].habitantes \leq \text{sumatoria} \quad \text{con algún k} \quad 0 \leq k < |\textit{ciudades}|
+\]
+
+Y por transitividad concluimos que:
+
+\[
+50.000 < \text{sumatoria}
 \]
 
 \end{document}
