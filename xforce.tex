@@ -191,8 +191,7 @@ A partir de aca empieza el TP.
 	\requiere{0 \leq hasta < |distancia|}
 	\requiere{filaIgualColumna(distancia)}
 	\requiere{matrizTodosPositivos(distancia)}
-	\asegura{\existe[unalinea]{sec}{\TLista{\ent}}{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|}}\implicaLuego 0 \leq sec[i] < |distancia| \land \\ 
-	sec[0] = desde \land sec[|sec|-1] = hasta \land \\
+	\asegura{\existe[unalinea]{sec}{\TLista{\ent}}{|sec| > 1} \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|} \implicaLuego \\ 	0 \leq sec[i] < |distancia| \land sec[0] = desde \land sec[|sec|-1] = hasta \land \\
 	todosConexionAnterior(sec, distancia)}
 
 \end{proc}
