@@ -224,8 +224,7 @@
 \end{proc}
 
 \pred{esLaMultiplicacion}{\In mat: \TLista{\TLista{\ent}}, \In mat_0: \TLista{\TLista{\ent}}, \In mat_1: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{i,j}{\ent}{0 \leq i,j < |mat|} \implicaLuego \\
-	mat[i][j] =  \sum_{k = 0}^{|mat| - 1} mat_0[i][k] * mat_1[k][j]
+	\paraTodo[unalinea]{i,j}{\ent}{0 \leq i,j < |mat|} \implicaLuego mat[i][j] =  \sum_{k = 0}^{|mat| - 1} mat_0[i][k] * mat_1[k][j]
 }
 
 % \aux{inversa}{\In mat: \TLista{\TLista{\ent}}}{\TLista{\TLista{\ent}}}{\\
@@ -247,14 +246,16 @@
 	\requiere{esCuadrada(distancias) \yLuego filaIgualColumna(distancias)}
 	\requiere{0 \leq destino, origen < |distancias|}
 	\requiere{matrizTodosPositivos(distancias)}
+
 	\asegura{\existe[unalinea]{s_1}{\TLista{\ent}}{|s_1| > 1} \land res = s_1 \leftrightarrow \paraTodo[unalinea]{s_2}{\TLista{\ent}}{|s_2| > 1} \implicaLuego \\
-	(secuenciaEsCamino(distancias, s_1, origen, destino) \land secuenciaEsCamino(distancias, s_2, origen, destino)) \implicaLuego\\
-	(longitudCamino(s_1) \leq longitudCamino(s_2, distancias)) }
+	(secuenciaEsCamino(distancias, s_1, origen, destino) \land secuenciaEsCamino(distancias, s_2, origen, destino)) \\
+	(longitudCamino(s_1, distancias) \leq longitudCamino(s_2, distancias)) }
+	\asegura{res = [] \leftrightarrow \paraTodo[unalinea]{s}{\TLista{\ent}}{\text{¬} secuenciaEsCamino(distancias, s, origen, destino)} }
 
 \end{proc}
 
 \aux{longitudCamino}{\In sec: \Tlista{\ent}, \In distancias: \Tlista{\Tlista{\ent}}}{\ent}{
-	\sum_{i = 1}^{|sec|-1} mat[sec[i]][sec[i-1]]
+	\sum_{i = 1}^{|sec|-1} distancias[sec[i]][sec[i-1]]
 }
 
 \section{Punto 2}
