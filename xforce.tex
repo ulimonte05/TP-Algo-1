@@ -400,7 +400,7 @@ Para probar que esto sea verdadero se debe cumplir lo siguiente.
 
 \begin{itemize}
     \item \( \{ I \land B \land F_v = v_0\} S \{ F_v < v_0 \} \)
-    \item \( I \land F_v \leq 0 \implica \neg B \)
+    \item \( (I \land F_v \leq 0) \implica \neg B \)
 \end{itemize}
 
 \textbf{Primer paso} Probamos la primera implicación:
@@ -412,31 +412,33 @@ Para probar que esto sea verdadero se debe cumplir lo siguiente.
 \]
 
 \[
-wp(S, F_v < v_0) =
+wp(S, F_v < v_0) 
 \]
+
+Calculamos la wp para probar \{ I \land B \land F_v = v_0\} \implica wp(S, \{ F_v < v_0 \}) 
 
 \[
 wp(S1, wp(S2, F_v < v_0)) =
 \]
 
 \[
-wp(S1, wp(i:=i+1, F_v < v_0)) =
+wp(S1, wp(i:=i+1, |\text{ciudades}|- i - 1 < v_0)) =
 \]
 
 \[
-wp(S1, True \land F_v = |\text{ciudades}| - i - 2 < v_0) =
+wp(S1, True \land |\text{ciudades}| - i - 2 < v_0) =
 \]
 
 \[
-wp(res:= res + \text{ciudades}[i].habitantes, True \land F_v = |\text{ciudades}| - i - 2 < v_0) = 
+wp(res:= res + \text{ciudades}[i].habitantes, True \land |\text{ciudades}| - i - 2 < v_0) = 
 \]
 
 \[
-True \land F_v = |\text{ciudades}| - i - 1 < v_0 =
+True \land|\text{ciudades}| - i - 1 < v_0 =
 \]
 
 \[
-F_v = |\text{ciudades}| - i - 1 < v_0
+ |\text{ciudades}| - i - 1 < v_0
 \]
 
 Finalmente la implicación nos queda de la forma
