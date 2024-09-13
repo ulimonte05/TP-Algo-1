@@ -197,7 +197,7 @@
 
 \pred{secuenciaEsCamino}{\In distancia: \TLista{\TLista{\ent}}, \In sec: \TLista{\ent}, \In desde: \ent, \In hasta: \ent}{
 	sec[0] = desde \land sec[|sec|-1] = hasta \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|} \implicaLuego \\ 	
-	0 \leq sec[i] < |distancia| \land todosConexionAnterior(sec, distancia)}
+	0 \leq sec[i] < |distancia| \yLuego todosConexionAnterior(sec, distancia)}
 
 
 \pred{todosConexionAnterior}{\In sec: \TLista{\ent}, \In mat: \TLista{\TLista{\ent}}}{
@@ -221,21 +221,27 @@
 	\requiere{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |conexion|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |conexion|} \implicaLuego conexion[i][j] \in [0,1]}
 	\requiere{conexion = C_0}
 	\asegura{\existe[unalinea]{sec}{\TLista{\TLista{\TLista{\ent}}}}{|sec| = n} \land sec[0] = C_0 \land\\
-	\paraTodo[unalinea]{i}{\ent}{1 \leq i < |sec|} \implicaLuego sec[i] = multiplicarMatrices(C_0, sec[i-1]) \implica conexion = sec[|sec| - 1] }
+	\paraTodo[unalinea]{i}{\ent}{1 \leq i < |sec|} \implicaLuego esCuadrada(sec[i]) \land |sec[i]| = |conexion| \implicaLuego \\
+	esLaMultiplicacion(sec[i], C_0, sec[i-1]) \implica conexion = sec[|sec| - 1] }
 \end{proc}
 
-\aux{inversa}{\In mat: \TLista{\TLista{\ent}}}{\TLista{\TLista{\ent}}}{\\
-\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuegos res[j][i] = mat[i][j]
+\pred{esLaMultiplicacion}{\In mat: \TLista{\TLista{\ent}}, \In mat_0: \TLista{\TLista{\ent}}, \In mat_1: \TLista{\TLista{\ent}}}{
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \land \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego \\
+	mat[i][j] =  \sum_{k = 0}^{|mat| - 1} mat_0[i][k] * mat_1[k][j]
 }
 
-\aux{multiplicarMatrices}{\In mat1: {\TLista{\TLista{\ent}}}, \In mat2: {\TLista{\TLista{\ent}}}}{\TLista{\TLista{\ent}}}{\\
-	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat1|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat1[i]|} \implicaLuego \\
-	res[i][j] = productoEscalar(mat1[i], inversa(mat2)[j])
-}
+% \aux{inversa}{\In mat: \TLista{\TLista{\ent}}}{\TLista{\TLista{\ent}}}{\\
+% \paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuegos res[j][i] = mat[i][j]
+% }
 
-\aux{productoEscalar}{\in fila: \TLista{\ent}, \in col: \TLista{\ent}}{\ent}{\\
-	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |fila|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |col|} \implicaLuego res = \sum_{i = 0}^{|fila| - 1} fila[i] * fila[j]
-}
+% \aux{multiplicarMatrices}{\In mat1: {\TLista{\TLista{\ent}}}, \In mat2: {\TLista{\TLista{\ent}}}}{\TLista{\TLista{\ent}}}{\\
+% 	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat1|}\implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat1[i]|} \implicaLuego \\
+% 	res[i][j] = productoEscalar(mat1[i], inversa(mat2)[j])
+% }
+
+% \aux{productoEscalar}{\in fila: \TLista{\ent}, \in col: \TLista{\ent}}{\ent}{\\
+% 	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |fila|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |col|} \implicaLuego res = \sum_{i = 0}^{|fila| - 1} fila[i] * fila[j]
+% }
 
 \subsection {Ejercicio 5}
 
