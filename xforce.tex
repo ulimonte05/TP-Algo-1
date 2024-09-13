@@ -13,7 +13,7 @@
 \grupo{Grupo 42}
 
 \integrante{Krivonosoff, Thiago}{310/24}{thiagokribas@gmail.com}
-\integrante{Pellitero, Agustin}{002/01}{email2@dominio.com}
+\integrante{Pellitero, Agustin}{002/01}{agustinignaciopelli.com}
 \integrante{Miguel, Facundo}{702/24}{facumiguel4025@gmail.com}
 \integrante{Montenegro, Ulises}{477/24}{ulinicolasmonte@gmail.com}
 % Pongan cuantos integrantes quieran
@@ -302,8 +302,6 @@ True
 
 Para probar que esto sea verdadero se debe cumplir \{I \land B\} \implica wp(S, I)   
 
-------codigo
-
 Hacemos uso del axioma para calcular wp(S, I).
 \[
 wp(S, I) \cong wp(S_1, wp(S_2, I))
@@ -386,7 +384,7 @@ True
  \sum_{j=0}^{|\text{ciudades}|-1} \text{ciudades}[j].habitantes = res \land i = |\text{ciudades}|
 \]
 
-I esta entre las longitudes de ciudades y se cancelan las sumatorias
+i esta entre las longitudes de ciudades y se cancelan las sumatorias
 
 \[
 True
@@ -408,73 +406,74 @@ Para probar que esto sea verdadero se debe cumplir lo siguiente.
 \{ I \land B \land F_v = v_0\} S \{ F_v < v_0 \}
 
 \[
-\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i \leq |\text{ciudades}| \land F_v = |\text{ciudades}| - i - 1\} \implica (sigue abajo)
+\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i \leq |\text{ciudades}| \land F_v = |\text{ciudades}| - i - 1\} \implica 
 \]
 
 \[
 wp(S, F_v < v_0) 
 \]
 
+
 Calculamos la wp para probar \{ I \land B \land F_v = v_0\} \implica wp(S, \{ F_v < v_0 \}) 
 
 \[
-wp(S1, wp(S2, F_v < v_0)) =
+wp(S1, wp(S2, F_v < v_0)) \cong 
 \]
 
 \[
-wp(S1, wp(i:=i+1, |\text{ciudades}|- i - 1 < v_0)) =
+wp(S1, wp(i:=i+1, |\text{ciudades}|- i - 1 < v_0)) \cong
 \]
 
 \[
-wp(S1, True \land |\text{ciudades}| - i - 2 < v_0) =
+	def(i := i + 1) \land |ciudades| - (i + 1) - 1 < v_0 \cong
 \]
 
 \[
-wp(res:= res + \text{ciudades}[i].habitantes, True \land |\text{ciudades}| - i - 2 < v_0) = 
+wp(S1, True \land |\text{ciudades}| - i - 2 < v_0) \cong
 \]
 
 \[
-True \land|\text{ciudades}| - i - 1 < v_0 =
+wp(res:= res + \text{ciudades}[i].habitantes, |\text{ciudades}| - i - 2 < v_0) = 
 \]
 
 \[
- |\text{ciudades}| - i - 1 < v_0
+def(res := res + ciudades[i].habitantes) \yLuego |ciudades| - i - 2 < v_0 \cong
+\]
+
+\[
+wp(S, F_v < v_0) \cong 0 \leq i < |ciudades| \yLuego |ciudades| - i - 2 < v_0
 \]
 
 Finalmente la implicación nos queda de la forma
 
+\{ I \land B \land F_v = v_0\} \implica wp(S, F_v < v_0)
+
 \[
-\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i \leq |\text{ciudades}| \land F_v = |\text{ciudades}| - i - 1\} \implica (sigue abajo)
+\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i < |\text{ciudades}| \land |\text{ciudades}| - i - 1\ = v_0} \implica 
 \]
 
 \[
-|\text{ciudades}| - i - 1 < |\text{ciudades}| - i 
-\]
-
-Se cancelan los terminos y queda
-
-\[
-\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \yLuego F_v = |\text{ciudades}| - i - 1 \} \implica True
+0 \leq i < |ciudades| \yLuego |ciudades| - i - 2 < v_0 \cong
 \]
 
 \[
-True
+	|ciudades| - i - 2 < |ciudades| - i - 1 \cong True
 \]
 
 \textbf{Segundo paso} Probamos la segunda implicación:
 
-I \land F_v \leq 0 \implica \neg B
+(I \land F_v \leq 0) \implica \neg B
 
 \[
-0 \leq i \leq |\text{ciudades}| \yLuego res = \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes \yLuego |\text{ciudades}| - i - 1 \leq 0 \implica i \geq |\text{ciudades}|
+0 \leq i \leq |\text{ciudades}| \yLuego res = \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes \yLuego |\text{ciudades}| - i - 1 \leq 0 \implica i \geq |\text{ciudades}| \cong
 \]
 
 \[
-0 \leq i \leq |\text{ciudades}| \land |\text{ciudades}| \leq i + 1 \implica i \geq |\text{ciudades}|
+0 \leq i \leq |\text{ciudades}| \yLuego |\text{ciudades}| \leq i + 1 \implica i \geq |\text{ciudades}| \cong
 \]
 
 \[
-i = |\text{ciudades}| \implica i \geq |\text{ciudades}|
+i = |\text{ciudades}| \implica i \geq |\text{ciudades}| \cong
 \]
 
 \[
@@ -485,23 +484,29 @@ True
 
 Teniendo en cuenta la correctitud del programa demostrada en el 2.1, sabemos que el valor devuelto por el programa, siempre que se cumpla la precondición, tendrá la pinta de:
 
-\[
-\existe[unalinea]{k}{\ent}{0 \leq k < |ciudades|} \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |ciudades|}
-\]
+% \[
+% \existe[unalinea]{k}{\ent}{0 \leq k < |ciudades|} \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |ciudades|}
+% \]
 
 \[
-\text{res} = \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes 
+\text{res} = \sum_{j=0}^{|ciudades|-1} \text{ciudades}[j].habitantes 
 \]
 
 En el procedimiento, se especifica que el parámetro de entrada es de tipo IN, por lo tanto en la precondición y la postcondición, el parámetro \textit{ciudades} mantendrá las mismas características, entre ellas que sus elementos son todos mayores o iguales a 0. Por lo tanto, al tomar un elemento de \textit{ciudades}, obligatoriamente será menor o igual a la sumatoria del total de elementos de \textit{ciudades}, es decir:
 
-
 \[
-\textit{ciudades}[i].habitantes \leq \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes 
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |ciudades|} \implicaLuego
 \]
 
-Ahora bien, según la postcondición sabemos que \text{res} = la sumatoria de todos sus elementos, entre los cuales sabemos que al menos alguno de ellos es mayor a 50.000, por lo tanto:
+\[
+\textit{ciudades}[i].habitantes \leq \sum_{j=0}^{|ciudades|-1} \text{ciudades}[j].habitantes 
+\]
 
+Ahora bien, según la postcondición sabemos que res es igual la sumatoria de todos sus elementos, entre los cuales sabemos que al menos alguno de ellos es mayor a 50.000, por lo tanto:
+
+\[
+\existe[unalinea]{k}{\ent}{0 \leq k < |ciudades|} \yLuego
+\]
 
 \[
 50.000 < \textit{ciudades}[k].habitantes  
