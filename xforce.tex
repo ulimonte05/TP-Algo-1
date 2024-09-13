@@ -26,134 +26,135 @@
 
 \maketitle
 
-\section{Ejemplo de sección}
-\subsection{Subsección: ambientes comunes de \LaTeX}
+% \section{Ejemplo de sección}
+% \subsection{Subsección: ambientes comunes de \LaTeX}
 
-Lo principal: las fórmulas. Se puede poner en una linea, como $x_i = x_{i-1} + x_{i-2}$, o ponerse más grande:
+% Lo principal: las fórmulas. Se puede poner en una linea, como $x_i = x_{i-1} + x_{i-2}$, o ponerse más grande:
 
-\begin{equation}
-	\sum\limits_{i=0}^{n} i
-	\label{eq:1}
-\end{equation}
+% \begin{equation}
+% 	\sum\limits_{i=0}^{n} i
+% 	\label{eq:1}
+% \end{equation}
 
-Y se pueden citar ecuaciones con \verb|\eqref{nombreDeEq}|: \eqref{eq:1}
+% Y se pueden citar ecuaciones con \verb|\eqref{nombreDeEq}|: \eqref{eq:1}
 
-Ejemplo de itemizado:
+% Ejemplo de itemizado:
 
-\begin{itemize}
-	\item Item 1
-	\item Item 2
-	\item Item 3
-\end{itemize}
+% \begin{itemize}
+% 	\item Item 1
+% 	\item Item 2
+% 	\item Item 3
+% \end{itemize}
 
-Ejemplo de enumerado con menor distancia entre items:
+% Ejemplo de enumerado con menor distancia entre items:
 
-\begin{enumerate} \setlength\itemsep{0cm}
-	\item Item 1
-	\item Item 2
-	\item Item 3
-\end{enumerate}
+% \begin{enumerate} \setlength\itemsep{0cm}
+% 	\item Item 1
+% 	\item Item 2
+% 	\item Item 3
+% \end{enumerate}
 
-Podemos escribir mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto.
+% Podemos escribir mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto. Mucho texto.
 
-Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo.
+% Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo. Otro párrafo.
 
-\vspace{0.3cm}
+% \vspace{0.3cm}
 
-Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos.
+% Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos. Le agregamos una separación entre párrafos.
 
-\vspace{0.3cm}
+% \vspace{0.3cm}
 
-La tabla \ref{tab:ejemplo} es un ejemplo de cómo se hace una tabla.
+% La tabla \ref{tab:ejemplo} es un ejemplo de cómo se hace una tabla.
 
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{||l c c r||} 
-		\hline
-		Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
-		\hline\hline
-		1 & 6 & 87837 & 787 \\ 
-		2 & 7 & 78 & 5415 \\
-		3 & 545 & 778 & 7507 \\
-		4 & 545 & 18744 & 7560 \\
-		5 & 88 & 788 & 6344 \\
-		\hline
-	\end{tabular}
-	\caption{Ejemplo de tabla}
-	\label{tab:ejemplo}
-\end{table}
-
-
-La figura \ref{fig:subfigs} es un ejemplo de cómo se agrega una imagen.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{logo_dc.jpg}
-	\caption{Ejemplo de figura}
-	\label{fig:ejemplo}
-\end{figure}
-
-\begin{figure}[ht!]
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth]{LaTeX-project} 
-		\caption{Logo de LaTeX}
-		\label{fig:subfig1}
-	\end{subfigure}
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.7\linewidth]{TeX}
-		\caption{Logo de TeX}
-		\label{fig:subfig2}
-	\end{subfigure}
-	\caption{Ejemplo para poner dos figuras juntas. Y citarlas por separado a (\subref{fig:subfig1}) y (\subref{fig:subfig2}).}
-	% OJO: el caption siempre va antes del label
-	\label{fig:subfigs}
-\end{figure}
+% \begin{table}[h!]
+% 	\centering
+% 	\begin{tabular}{||l c c r||} 
+% 		\hline
+% 		Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+% 		\hline\hline
+% 		1 & 6 & 87837 & 787 \\ 
+% 		2 & 7 & 78 & 5415 \\
+% 		3 & 545 & 778 & 7507 \\
+% 		4 & 545 & 18744 & 7560 \\
+% 		5 & 88 & 788 & 6344 \\
+% 		\hline
+% 	\end{tabular}
+% 	\caption{Ejemplo de tabla}
+% 	\label{tab:ejemplo}
+% \end{table}
 
 
+% La figura \ref{fig:subfigs} es un ejemplo de cómo se agrega una imagen.
 
-% Para hacer que quede todo en una misma linea, se puede usar minipage
-%\begin{minipage}[t]{\textwidth}
-	\begin{lstlisting}[caption={Ejemplo de código (usando los estilos de la cátedra, ver las macros para más detalles)},label=code:for]
-res := 0;
-i := 0;
-while (i < s.size()) do
-	res := res + s[i];
-	i := i + 1
-endwhile
-	\end{lstlisting}
-%\end{minipage}
+% \begin{figure}[ht]
+% 	\centering
+% 	\includegraphics[width=0.6\textwidth]{logo_dc.jpg}
+% 	\caption{Ejemplo de figura}
+% 	\label{fig:ejemplo}
+% \end{figure}
 
-Si se pone un label al \verb|lstlisting|, se puede referenciar: Código \ref{code:for}.
-
-
-\subsection{Macros de la cátedra para especificar}
-
-\begin{proc}{nombre}{\In paramIn : \nat, \Inout paramInout : \TLista{\ent}}{tipoRes}
-	%    \modifica{parametro1, parametro2,..}
-	\requiere{expresionBooleana1}
-	\asegura{expresionBooleana2}
-	\aux{auxiliar1}{parametros}{tipoRes}{expresion}
-	\pred{pred1}{parametros}{expresion} 
-\end{proc}
-
-\aux{auxiliarSuelto}{parametros}{tipoRes}{expresion}
-% \paraTodo{variable}{tipo}{expresion}
-% \existe{variable}{tipo}{expresion}
-% Pueden tener [unalinea] para que no se divida en varias lineas
-\pred{predSuelto}{parametros}{\paraTodo[unalinea]{variable}{tipo}{algo \implicaLuego expresion}}
-\pred{predSuelto}{parametros}{\existe[unalinea]{variable}{tipo}{algo \yLuego expresion}}
+% \begin{figure}[ht!]
+% 	\begin{subfigure}{0.5\textwidth}
+% 		\includegraphics[width=0.9\linewidth]{LaTeX-project} 
+% 		\caption{Logo de LaTeX}
+% 		\label{fig:subfig1}
+% 	\end{subfigure}
+% 	\begin{subfigure}{0.5\textwidth}
+% 		\includegraphics[width=0.7\linewidth]{TeX}
+% 		\caption{Logo de TeX}
+% 		\label{fig:subfig2}
+% 	\end{subfigure}
+% 	\caption{Ejemplo para poner dos figuras juntas. Y citarlas por separado a (\subref{fig:subfig1}) y (\subref{fig:subfig2}).}
+% 	% OJO: el caption siempre va antes del label
+% 	\label{fig:subfigs}
+% \end{figure}
 
 
-A partir de aca empieza el TP.
 
-%salto de lineas
+% % Para hacer que quede todo en una misma linea, se puede usar minipage
+% %\begin{minipage}[t]{\textwidth}
+% 	\begin{lstlisting}[caption={Ejemplo de código (usando los estilos de la cátedra, ver las macros para más detalles)},label=code:for]
+% res := 0;
+% i := 0;
+% while (i < s.size()) do
+% 	res := res + s[i];
+% 	i := i + 1
+% endwhile
+% 	\end{lstlisting}
+% %\end{minipage}
 
-\section{Problema 1}
+% Si se pone un label al \verb|lstlisting|, se puede referenciar: Código \ref{code:for}.
+
+
+% \subsection{Macros de la cátedra para especificar}
+
+% \begin{proc}{nombre}{\In paramIn : \nat, \Inout paramInout : \TLista{\ent}}{tipoRes}
+% 	%    \modifica{parametro1, parametro2,..}
+% 	\requiere{expresionBooleana1}
+% 	\asegura{expresionBooleana2}
+% 	\aux{auxiliar1}{parametros}{tipoRes}{expresion}
+% 	\pred{pred1}{parametros}{expresion} 
+% \end{proc}
+
+% \aux{auxiliarSuelto}{parametros}{tipoRes}{expresion}
+% % \paraTodo{variable}{tipo}{expresion}
+% % \existe{variable}{tipo}{expresion}
+% % Pueden tener [unalinea] para que no se divida en varias lineas
+% \pred{predSuelto}{parametros}{\paraTodo[unalinea]{variable}{tipo}{algo \implicaLuego expresion}}
+% \pred{predSuelto}{parametros}{\existe[unalinea]{variable}{tipo}{algo \yLuego expresion}}
+
+
+% A partir de aca empieza el TP.
+
+% %salto de lineas
+
+\section{Punto 1}
+\subsection{Ejercicio 1}
 
 \begin{proc}{grandesCiudades}{\In ciudades : \TLista{Ciudad}}{\TLista{Ciudad}}
 	\requiere{noRepetidos(ciudades) \land noHabitantesNegativos(ciudades)}
 	\asegura{ \longitud{res} \leq \longitud{ciudades} }
-	\asegura{ \paraTodo[unalinea]{elem}{Ciudad}{(elem.habitantes > 50000 \land elem \in ciudades) \implica elem \in res}}
+	\asegura{ \paraTodo[unalinea]{elem}{Ciudad}{(elem.habitantes > 50000 \land elem \in ciudades) \leftrightarrow elem \in res}}
 \end{proc}
 
 \pred{noRepetidos}{\In ciudades: \TLista{Ciudad}}
@@ -162,7 +163,7 @@ A partir de aca empieza el TP.
 \pred{noHabitantesNegativos}{\In ciudades: \TLista{Ciudad}}
 	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |ciudades|} \implicaLuego ciudades[i].habitantes >= 0}
 
-\section{Problema 2}
+\subsection{Ejercicio 2}
 
 \begin{proc}{sumaDeHabitantes}{\In menoresDeCiudades: \TLista{Ciudad}, \In mayoresDeCiudades: \TLista{Ciudad}}{\TLista{Ciudad}}
 	\requiere{noRepetidos(menoresDeCiudades) \land noRepetidos(mayoresDeCiudades)}
@@ -177,13 +178,12 @@ A partir de aca empieza el TP.
 		res[i].nombre = mayoresDeCiudades[i].nombre \land \\
 		res[i].habitantes = mayoresDeCiudades[i].habitantes + menoresDeCiudades[j].habitantes}
 \end{proc}
-\newpage
 
 \pred{mismosElementos}{\In s1: \TLista{Ciudad}, \In s2: \TLista{Ciudad}}{
 	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |s1|} \implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |s1|} \yLuego s1[i].nombre = s2[j].nombre}
 }
 
-\section{Problema 3}
+\subsection{Ejercicio 3}
 
 \begin{proc}{hayCamino}{\In distancia: \TLista{\TLista{\ent}}, \In desde: \ent, \In hasta: \ent}{\bool}
 	\requiere{esCuadrada(distancia)}
@@ -191,10 +191,14 @@ A partir de aca empieza el TP.
 	\requiere{0 \leq hasta < |distancia|}
 	\requiere{filaIgualColumna(distancia)}
 	\requiere{matrizTodosPositivos(distancia)}
-	\asegura{\existe[unalinea]{sec}{\TLista{\ent}}{|sec| > 1} \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|} \implicaLuego \\ 	0 \leq sec[i] < |distancia| \land sec[0] = desde \land sec[|sec|-1] = hasta \land \\
-	todosConexionAnterior(sec, distancia)}
+	\asegura{res = True \leftrightarrow \existe[unalinea]{sec}{\TLista{\ent}}{|sec| > 1} \yLuego secuenciaEsCamino(distancia, sec, desde, hasta)}
 
 \end{proc}
+
+\pred{secuenciaEsCamino}{\In distancia: \TLista{\TLista{\ent}}, \In sec: \TLista{\ent}, \In desde: \ent, \In hasta: \ent}{
+	sec[0] = desde \land sec[|sec|-1] = hasta \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|} \implicaLuego \\ 	
+	0 \leq sec[i] < |distancia| \land todosConexionAnterior(sec, distancia)}
+}
 
 \pred{todosConexionAnterior}{\In sec: \TLista{\ent}, \In mat: \TLista{\TLista{\ent}}}{
 	\paraTodo[unalinea]{j}{\ent}{1 \leq i < |sec| \implicaLuego mat[sec[i]][sec[i-1]] \neq 0
@@ -208,7 +212,7 @@ A partir de aca empieza el TP.
 \pred{matrizTodosPositivos}{\In mat: \TLista{\TLista{\ent}}}{
 	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego mat[i][j] >= 0
 }\\
-\section{Problema 4}
+\subsection{Ejercicio 4}
 
 \begin{proc}{cantidadCaminosNSaltos}{\Inout conexion: \TLista{\TLista{\ent}}, \In n: \ent}{}
 	\requiere{1 \leq n}
@@ -233,7 +237,21 @@ A partir de aca empieza el TP.
 	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |fila|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |col|} \implicaLuego res = \sum_{i = 0}^{|fila| - 1} fila[i] * fila[j]
 }
 
-\section{Punto 2.1}
+\subsection {Ejercicio 5}
+
+\begin{proc}{caminoMinimo}{\In origen: \ent, \In destino: \ent, \In distancias: \TLista{\TLista{\ent}}}{\TLista{\ent}}
+	\requiere{esCuadrada(distancias)}
+	\requiere{0 \leq destino, origen < |distancias|}
+	\requiere{filaIgualColumna(distancias)}
+	\requiere{matrizTodosPositivos(distancias)}
+	\asegura{\existe[unalinea]{s_1}{\TLista{\ent}}{|s_1| > 1} \land res = s_1 \leftrightarrow \paraTodo[unalinea]{s_2}{\TLista{\ent}}{|s_2| > 1} \implicaLuego \\
+	(secuenciaEsCamino(distancias, s_1, origen, destino) \land secuenciaEsCamino(distancias, s_2, origen, destino)) \implicaLuego\\
+	(longitudCamino(s_2) \leq longitudCamino(s_1)) }
+
+\end{proc}
+
+\section{Punto 2}
+\subsection{Ejercicio 1}
 \subtitle{Demostramos que la implementación es correcta con correcta con respecto a la especificación dada mediante teorema de invariante y teorema de terminación.}
 
 Por teorema del invariante primero debemos demostrar los siguientes puntos:
@@ -444,7 +462,7 @@ i = |\text{ciudades}| \implica i \geq |\text{ciudades}|
 True
 \]
 
-\section{Ejercicio 2.2}
+\subsection{Ejercicio 2}
 
 Teniendo en cuenta la correctitud del programa demostrada en el 2.1, sabemos que el valor devuelto por el programa, siempre que se cumpla la precondición, tendrá la pinta de:
 
