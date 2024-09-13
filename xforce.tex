@@ -338,7 +338,11 @@ wp(S_1, wp(S_2, I)) \cong 0 \leq i < |\text{ciudades}| \yLuego 0 \leq i+1 \leq |
 \]
 
 \[
-wp(S_1, wp(S_2, I)) 0 \leq i < |\text{ciudades}| \yLuego \sum_{j=0}^{i} \text{ciudades}[j].habitantes = res + \text{ciudades}[i].habitantes
+wp(S_1, wp(S_2, I)) \cong 0 \leq i < |\text{ciudades}| \yLuego \sum_{j=0}^{i} \text{ciudades}[j].habitantes = res + \text{ciudades}[i].habitantes
+\]
+
+\[
+wp(S_1, wp(S_2, I)) \cong 0 \leq i < |\text{ciudades}| \yLuego \sum_{j=0}^{i} \text{ciudades}[j].habitantes - \text{ciudades}[i].habitantes = res 
 \]
 
 Ahora queda definido el wp de S:
@@ -350,11 +354,11 @@ wp(S, I) \cong 0 \leq i < |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciuda
 Ahora veo la implicacion del invariante y la guarda hacia wp(S,I):
 
 \[
-\{I \land B\} \implica wp(S, I) \cong (sigue abajo)
+\{I \land B\} \implica wp(S, I) \cong
 \]
 
 \[
- 0 \leq i < |\text{ciudades}| \land 0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \implica (sigue abajo)
+ 0 \leq i < |\text{ciudades}| \land 0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \implica 
 \]
 
 \[
@@ -372,14 +376,14 @@ True
 \]
 
 \textbf{Tercer paso} Ahora probamos que vale la siguiente implicación:
-\( I \land \neg B \implica Q_c \)
+( I \land \neg B \implica Q_c )
 
 \[
-0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land i \geq |\text{ciudades}| (sigue abajo)
+0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land i \geq |\text{ciudades}| \implica
 \]
 
 \[
-\implica \sum_{j=0}^{|\text{ciudades}|-1} \text{ciudades}[j].habitantes = res \land i = |\text{ciudades}|
+ \sum_{j=0}^{|\text{ciudades}|-1} \text{ciudades}[j].habitantes = res \land i = |\text{ciudades}|
 \]
 
 Se cancelan las sumatorias y la igualdad
