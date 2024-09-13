@@ -198,19 +198,19 @@
 \pred{secuenciaEsCamino}{\In distancia: \TLista{\TLista{\ent}}, \In sec: \TLista{\ent}, \In desde: \ent, \In hasta: \ent}{
 	sec[0] = desde \land sec[|sec|-1] = hasta \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|} \implicaLuego \\ 	
 	0 \leq sec[i] < |distancia| \land todosConexionAnterior(sec, distancia)}
-}
+
 
 \pred{todosConexionAnterior}{\In sec: \TLista{\ent}, \In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{j}{\ent}{1 \leq i < |sec| \implicaLuego mat[sec[i]][sec[i-1]] \neq 0
+	\paraTodo[unalinea]{i}{\ent}{1 \leq i < |sec| \implicaLuego mat[sec[i]][sec[i-1]] \neq 0
 }}
 \pred{esCuadrada}{\In mat: \TLista{\TLista{\ent}}}{
 	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \implicaLuego |mat| = |mat[i]|
 }\\
 \pred{filaIgualColumna}{\In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego mat[i][j] = mat[j][i]
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \land \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego mat[i][j] = mat[j][i]
 }\\
 \pred{matrizTodosPositivos}{\In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \implicaLuego \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego mat[i][j] >= 0
+	\paraTodo[unalinea]{i}{\ent}{0 \leq i < |mat|} \land \paraTodo[unalinea]{j}{\ent}{0 \leq j < |mat|} \implicaLuego mat[i][j] >= 0
 }\\
 \subsection{Ejercicio 4}
 
@@ -246,9 +246,13 @@
 	\requiere{matrizTodosPositivos(distancias)}
 	\asegura{\existe[unalinea]{s_1}{\TLista{\ent}}{|s_1| > 1} \land res = s_1 \leftrightarrow \paraTodo[unalinea]{s_2}{\TLista{\ent}}{|s_2| > 1} \implicaLuego \\
 	(secuenciaEsCamino(distancias, s_1, origen, destino) \land secuenciaEsCamino(distancias, s_2, origen, destino)) \implicaLuego\\
-	(longitudCamino(s_2) \leq longitudCamino(s_1)) }
+	(longitudCamino(s_1) \leq longitudCamino(s_2, distancias)) }
 
 \end{proc}
+
+\aux{longitudCamino}{\In sec: \Tlista{\ent}, \In distancias: \Tlista{\Tlista{\ent}}}{\ent}{
+	\sum_{i = 1}^{|sec|-1} mat[sec[i]][sec[i-1]]
+}
 
 \section{Punto 2}
 \subsection{Ejercicio 1}
