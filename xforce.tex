@@ -330,15 +330,15 @@ wp(S_1, wp(S_2, I)) \cong wp(res := res + \text{ciudades}[i].habitantes, 0 \leq 
 \]
 
 \[
-wp(S_1, wp(S_2, I)) \cong def(res := res + \text{ciudades}[i].habitantes) \yLuego I_{res + \text{ciudades}[i].habitantes}^{res}
+wp(S_1, wp(S_2, I)) \cong def(res := res + \text{ciudades}[i].habitantes) \yLuego I_{res := res + \text{ciudades}[i].habitantes}^{res}
 \]
 
 \[
-wp(S_1, wp(S_2, I)) \cong True \yLuego 0 \leq i+1 \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i} \text{ciudades}[j].habitantes = res + \text{ciudades}[i].habitantes
+wp(S_1, wp(S_2, I)) \cong 0 \leq i < |\text{ciudades}| \yLuego 0 \leq i+1 \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i} \text{ciudades}[j].habitantes = res + \text{ciudades}[i].habitantes
 \]
 
 \[
-wp(S_1, wp(S_2, I)) \cong 0 \leq i+1 \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i} \text{ciudades}[j].habitantes = res + \text{ciudades}[i].habitantes
+wp(S_1, wp(S_2, I)) 0 \leq i < |\text{ciudades}| \yLuego \sum_{j=0}^{i} \text{ciudades}[j].habitantes = res + \text{ciudades}[i].habitantes
 \]
 
 Ahora queda definido el wp de S:
