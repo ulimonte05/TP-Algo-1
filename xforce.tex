@@ -174,8 +174,8 @@
 	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |res|}\implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |res|}}}
 		\yLuego \\
 		{mayoresDeCiudades[i].nombre = menoresDeCiudades[j].nombre} \implica \\
-		res[i].nombre = mayoresDeCiudades[i].nombre \land \\
-		res[i].habitantes = mayoresDeCiudades[i].habitantes + menoresDeCiudades[j].habitantes}
+		(res[i].nombre = mayoresDeCiudades[i].nombre \land \\
+		res[i].habitantes = mayoresDeCiudades[i].habitantes + menoresDeCiudades[j].habitantes)}
 \end{proc}
 
 \pred{mismosElementos}{\In s1: \TLista{Ciudad}, \In s2: \TLista{Ciudad}}{
