@@ -406,12 +406,12 @@ Para probar que esto sea verdadero se debe cumplir lo siguiente.
     \item \( (I \land F_v \leq 0) \implica \neg B \)
 \end{itemize}
 
-\textbf{Primer paso} Probamos la primera implicación:
+\textbf{Primer paso} probamos la primera implicación:
 
 \{ I \land B \land F_v = v_0\} S \{ F_v < v_0 \}
 
 \[
-\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i \leq |\text{ciudades}| \land F_v = |\text{ciudades}| - i - 1\} \implica 
+\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i < |\text{ciudades}| \land F_v = |\text{ciudades}| - i - 1\} \implica 
 \]
 
 \[
@@ -430,7 +430,7 @@ wp(S1, wp(i:=i+1, |\text{ciudades}|- i - 1 < v_0)) \equiv
 \]
 
 \[
-	def(i := i + 1) \land |ciudades| - (i + 1) - 1 < v_0 \equiv
+wp(S1, def(i := i + 1) \land |ciudades| - (i + 1) - 1 < v_0) \equiv
 \]
 
 \[
@@ -520,13 +520,13 @@ Ahora bien, según la postcondición sabemos que res es igual la sumatoria de to
 Podemos afirmar entonces que:
 
 \[
-50.000 < \textit{ciudades}[k].habitantes \leq \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes 
+50.000 < \textit{ciudades}[k].habitantes \leq \sum_{j=0}^{|\text{ciudades}|-1} \text{ciudades}[j].habitantes 
 \]
 
 Y por transitividad concluimos que:
 
 \[
-50.000 < \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes
+50.000 < \sum_{j=0}^{|\text{ciudades}|-1} \text{ciudades}[j].habitantes
 \]
 
 \end{document}
