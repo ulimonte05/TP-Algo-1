@@ -247,7 +247,7 @@
 	\requiere{matrizTodosPositivos(distancias)}
 
 	\asegura{\existe[unalinea]{s_1}{\TLista{\ent}}{|s_1| > 1} \land res = s_1 \leftrightarrow \paraTodo[unalinea]{s_2}{\TLista{\ent}}{|s_2| > 1} \implicaLuego \\
-	(secuenciaEsCamino(distancias, s_1, origen, destino) \land secuenciaEsCamino(distancias, s_2, origen, destino)) \land \\
+	(secuenciaEsCamino(distancias, s_1, origen, destino) \land secuenciaEsCamino(distancias, s_2, origen, destino) \land \\
 	(longitudCamino(s_1, distancias) \leq longitudCamino(s_2, distancias)) }
 	\asegura{res = [] \leftrightarrow \paraTodo[unalinea]{s}{\TLista{\ent}}{\text{¬} secuenciaEsCamino(distancias, s, origen, destino)} }
 
