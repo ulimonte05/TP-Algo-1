@@ -168,7 +168,7 @@
 \begin{proc}{sumaDeHabitantes}{\In menoresDeCiudades: \TLista{Ciudad}, \In mayoresDeCiudades: \TLista{Ciudad}}{\TLista{Ciudad}}
 	\requiere{noRepetidos(menoresDeCiudades) \land noRepetidos(mayoresDeCiudades)}
 	\requiere{noHabitantesNegativos(menoresDeCiudades) \land noHabitantesNegativos(mayoresDeCiudades)} 
-	\requiere{|menoresDeCiudades| = |mayoresDeCiudades| \yLuego mismosElementos(menoresDeCiudades, mayoresDeCiudades)}
+	\requiere{|menoresDeCiudades| = |mayoresDeCiudades| \yLuego \\ mismosElementos(menoresDeCiudades, mayoresDeCiudades)}
 	\asegura{|res| = |mayoresDeCiudades|}
 	\asegura{\paraTodo[unalinea]{elem}{Ciudad}{(elem \in res) \leftrightarrow  \\ 
 	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |res|}\implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |res|}}}
@@ -179,7 +179,7 @@
 \end{proc}
 
 \pred{mismosElementos}{\In s1: \TLista{Ciudad}, \In s2: \TLista{Ciudad}}{
-	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |s1|} \implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |s1|} \yLuego s1[i].nombre = s2[j].nombre}
+	\\{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |s1|} \implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |s1|} \yLuego s1[i].nombre = s2[j].nombre}
 }
 
 \subsection{Ejercicio 3}
