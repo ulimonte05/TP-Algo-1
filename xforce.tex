@@ -4,13 +4,13 @@
 \usepackage{caratula} % Version modificada para usar las macros de algo1 de ~> https://github.com/bcardiff/dc-tex
 
 
-\titulo{Descripci\'on del tp}
-\subtitulo{Subtítulo del tp}
+\titulo{Trabajo practico 1}
+\subtitulo{Especificacion y WP}
 
 \fecha{\today}
 
-\materia{Materia de la carrera}
-\grupo{Grupo 42}
+\materia{Algoritmos y Estructuras de Datos}
+\grupo{X-force}
 
 \integrante{Krivonosoff, Thiago}{310/24}{thiagokribas@gmail.com}
 \integrante{Pellitero, Agustin}{185/24}{agustinignaciopelli.com}
@@ -168,8 +168,7 @@
 \begin{proc}{sumaDeHabitantes}{\In menoresDeCiudades: \TLista{Ciudad}, \In mayoresDeCiudades: \TLista{Ciudad}}{\TLista{Ciudad}}
 	\requiere{noRepetidos(menoresDeCiudades) \land noRepetidos(mayoresDeCiudades)}
 	\requiere{noHabitantesNegativos(menoresDeCiudades) \land noHabitantesNegativos(mayoresDeCiudades)} 
-	\requiere{mismosElementos(menoresDeCiudades, mayoresDeCiudades)}
-	\requiere{|menoresDeCiudades| = |mayoresDeCiudades|}
+	\requiere{|menoresDeCiudades| = |mayoresDeCiudades| \yLuego mismosElementos(menoresDeCiudades, mayoresDeCiudades)}
 	\asegura{|res| = |mayoresDeCiudades|}
 	\asegura{\paraTodo[unalinea]{elem}{Ciudad}{(elem \in res) \leftrightarrow  \\ 
 	{\paraTodo[unalinea]{i}{\ent}{0 \leq i < |res|}\implicaLuego \existe[unalinea]{j}{\ent}{0 \leq j < |res|}}}
