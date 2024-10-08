@@ -185,7 +185,7 @@
 \subsection{Ejercicio 3}
 
 \begin{proc}{hayCamino}{\In distancia: \TLista{\TLista{\ent}}, \In desde: \ent, \In hasta: \ent}{\bool}
-	\requiere{esCuadrada(distancia) \yLuego filaIgualColumna(distancia)}
+	\requiere{esCuadrada(distancia) \yLuego filaIgualColumna(distancia) \yLuego diagonalCero(distancia)}
 	\requiere{0 \leq desde < |distancia|}
 	\requiere{0 \leq hasta < |distancia|}
 	\requiere{matrizTodosPositivos(distancia)}
@@ -197,6 +197,9 @@
 	sec[0] = desde \land sec[|sec|-1] = hasta \land \paraTodo[unalinea]{i}{\ent}{0 \leq i < |sec|} \implicaLuego \\ 	
 	0 \leq sec[i] < |distancia| \yLuego todosConexionAnterior(sec, distancia)}
 
+\pred{diagonalCero}{\In mat: \TLista{\TLista{\ent}}}{
+	\paraTodo[unalinea]{i,j}{\ent}{1 \leq i,j < |mat| \implicaLuego mat[i][j] \eq 0
+}}
 
 \pred{todosConexionAnterior}{\In sec: \TLista{\ent}, \In mat: \TLista{\TLista{\ent}}}{
 	\paraTodo[unalinea]{i}{\ent}{1 \leq i < |sec| \implicaLuego mat[sec[i]][sec[i-1]] \neq 0
@@ -214,7 +217,7 @@
 
 \begin{proc}{cantidadCaminosNSaltos}{\Inout conexion: \TLista{\TLista{\ent}}, \In n: \ent}{}
 	\requiere{1 \leq n}
-    \requiere{esCuadrada(conexion) \yLuego filaIgualColumna(conexion)}
+    \requiere{esCuadrada(conexion) \yLuego filaIgualColumna(conexion) \yLuego diagonalCero(conexion)}
 	\requiere{\paraTodo[unalinea]{i,j}{\ent}{0 \leq i,j < |conexion|} \implicaLuego conexion[i][j] \in [0,1]}
 	\requiere{conexion = C_0}
 	\asegura{\existe[unalinea]{sec}{\TLista{\TLista{\TLista{\ent}}}}{|sec| = n} \land sec[0] = C_0 \land conexion = sec[|sec| - 1] \leftrightarrow \\
@@ -242,7 +245,7 @@
 \subsection {Ejercicio 5}
 
 \begin{proc}{caminoMinimo}{\In origen: \ent, \In destino: \ent, \In distancias: \TLista{\TLista{\ent}}}{\TLista{\ent}}
-	\requiere{esCuadrada(distancias) \yLuego filaIgualColumna(distancias)}
+	\requiere{esCuadrada(distancias) \yLuego filaIgualColumna(distancias) \yLuego diagonalCero(distancias)}
 	\requiere{0 \leq destino, origen < |distancias|}
 	\requiere{matrizTodosPositivos(distancias)}
 
