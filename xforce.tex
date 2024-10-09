@@ -198,7 +198,7 @@
 	0 \leq sec[i] < |distancia| \yLuego todosConexionAnterior(sec, distancia)}
 
 \pred{diagonalCero}{\In mat: \TLista{\TLista{\ent}}}{
-	\paraTodo[unalinea]{i,j}{\ent}{1 \leq i,j < |mat| \implicaLuego mat[i][j] \eq 0
+	\paraTodo[unalinea]{i,j}{\ent}{(0 \leq i,j < |mat| \land i = j) \implicaLuego mat[i][j] = 0
 }}
 
 \pred{todosConexionAnterior}{\In sec: \TLista{\ent}, \In mat: \TLista{\TLista{\ent}}}{
@@ -271,6 +271,10 @@ Por teorema del invariante primero debemos demostrar los siguientes puntos:
     \item \( \{I \land B\} \ S \ \{I\} \)
     \item \( (I \land \neg B) \implica Q_c \)
 \end{itemize}
+
+Definimos P_c \equiv (res = 0 \land i = 0)
+
+Definimos Q_c \equiv ( \sum_{j=0}^{|\text{ciudades}|-1} \text{ciudades}[j].habitantes = res \land i = |\text{ciudades}|)
 
 Elegimos nuestra invariante.
 
@@ -482,6 +486,33 @@ Finalmente la implicación nos queda de la forma
 
 \[
 |\text{ciudades}|-1 \leq i \leq |\text{ciudades}| \implica |\text{ciudades}|-1 \leq i \leq |\text{ciudades}| \equiv
+\]
+
+\[
+True
+\]
+
+
+Nos queda probar que la precondición inicial del programa implica la wp entre {(i = 0, res = 0)} y la P_c
+
+\[
+ P_i \implica wp(i := 0, wp(res := 0, P_c))
+\]
+
+\[
+P_i \implica wp(i := 0, (def(res) \yLuego i = 0 \land 0 = 0))
+\]
+
+\[
+P_i \implica wp(i := 0, i = 0)
+\]
+
+\[
+P_i \implica def(i) \yLuego 0 = 0
+\]
+
+\[
+P_i \implica True
 \]
 
 \[
