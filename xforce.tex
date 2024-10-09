@@ -404,7 +404,7 @@ True
 
 Ahora por teorema de terminación debemos demostrar que la ejecucion del ciclo siempre termina, nuestra función variante:
 
-\textbf{F_v = |\text{ciudades}| - i - 1}
+\textbf{F_v = |\text{ciudades}| - i}
 
 Para probar que esto sea verdadero se debe cumplir lo siguiente.
 
@@ -418,7 +418,7 @@ Para probar que esto sea verdadero se debe cumplir lo siguiente.
 \{ I \land B \land F_v = v_0\} S \{ F_v < v_0 \}
 
 \[
-\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i < |\text{ciudades}| \land F_v = |\text{ciudades}| - i - 1\} \implica 
+\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i < |\text{ciudades}| \land F_v = |\text{ciudades}| - i\} \implica 
 \]
 
 \[
@@ -433,27 +433,27 @@ wp(S1, wp(S2, F_v < v_0)) \equiv
 \]
 
 \[
-wp(S1, wp(i:=i+1, |\text{ciudades}|- i - 1 < v_0)) \equiv
+wp(S1, wp(i:=i+1, |\text{ciudades}|- i< v_0)) \equiv
 \]
 
 \[
-wp(S1, def(i := i + 1) \land |ciudades| - (i + 1) - 1 < v_0) \equiv
+wp(S1, def(i := i + 1) \land |ciudades| - (i + 1) < v_0) \equiv
 \]
 
 \[
-wp(S1, True \land |\text{ciudades}| - i - 2 < v_0) \equiv
+wp(S1, True \land |\text{ciudades}| - i - 1 < v_0) \equiv
 \]
 
 \[
-wp(res:= res + \text{ciudades}[i].habitantes, |\text{ciudades}| - i - 2 < v_0) = 
+wp(res:= res + \text{ciudades}[i].habitantes, |\text{ciudades}| - i - 1 < v_0) = 
 \]
 
 \[
-def(res := res + ciudades[i].habitantes) \yLuego |ciudades| - i - 2 < v_0 \equiv
+def(res := res + ciudades[i].habitantes) \yLuego |ciudades| - i - 1 < v_0 \equiv
 \]
 
 \[
-wp(S, F_v < v_0) \equiv 0 \leq i < |ciudades| \yLuego |ciudades| - i - 2 < v_0
+wp(S, F_v < v_0) \equiv 0 \leq i < |ciudades| \yLuego |ciudades| - i - 1 < v_0
 \]
 
 Finalmente la implicación nos queda de la forma
@@ -461,15 +461,15 @@ Finalmente la implicación nos queda de la forma
 \{ I \land B \land F_v = v_0\} \implica wp(S, F_v < v_0)
 
 \[
-\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i < |\text{ciudades}| \land |\text{ciudades}| - i - 1\ = v_0} \implica 
+\{0 \leq i \leq |\text{ciudades}| \yLuego \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes = res \land 0 \leq i < |\text{ciudades}| \land |\text{ciudades}| - i\ = v_0} \implica 
 \]
 
 \[
-0 \leq i < |ciudades| \yLuego |ciudades| - i - 2 < v_0 \equiv
+0 \leq i < |ciudades| \yLuego |ciudades| - i - 1 < v_0 \equiv
 \]
 
 \[
-	|ciudades| - i - 2 < |ciudades| - i - 1 \equiv True
+	|ciudades| - i - 1 < |ciudades| - i \equiv True
 \]
 
 \textbf{Segundo paso} Probamos la segunda implicación:
@@ -477,15 +477,15 @@ Finalmente la implicación nos queda de la forma
 (I \land F_v \leq 0) \implica \neg B
 
 \[
-0 \leq i \leq |\text{ciudades}| \yLuego res = \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes \yLuego |\text{ciudades}| - i - 1 \leq 0 \implica i \geq |\text{ciudades}| \equiv
+0 \leq i \leq |\text{ciudades}| \yLuego res = \sum_{j=0}^{i-1} \text{ciudades}[j].habitantes \yLuego |\text{ciudades}| - i \leq 0 \implica i \geq |\text{ciudades}| \equiv
 \]
 
 \[
-0 \leq i \leq |\text{ciudades}| \yLuego |\text{ciudades}| \leq i + 1 \implica |\text{ciudades}|-1 \leq i \leq |\text{ciudades}| \equiv
+0 \leq i \leq |\text{ciudades}| \yLuego |\text{ciudades}| \leq i \implica |\text{ciudades}| \leq i \equiv
 \]
 
 \[
-|\text{ciudades}|-1 \leq i \leq |\text{ciudades}| \implica |\text{ciudades}|-1 \leq i \leq |\text{ciudades}| \equiv
+|\text{ciudades}| \leq i \leq |\text{ciudades}| \implica |\text{ciudades}| \leq i  \equiv
 \]
 
 \[
